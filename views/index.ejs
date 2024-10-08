@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles.css">
+    <title>CRUD com Node.js e MySQL</title>
+</head>
+<body>
+    <h1>Lista de Usuários</h1>
+
+    <form action="/add" method="POST">
+        <input type="text" name="name" placeholder="Nome" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <button type="submit">Adicionar Usuário</button>
+    </form>
+
+    <ul>
+      <% users.forEach(user => { %>
+        <li><%= user.name %> (<%= user.email %>) 
+          <a href="/delete/<%= user.id %>">Deletar</a>
+        </li>
+      <% }) %>
+    </ul>
+</body>
+</html>
